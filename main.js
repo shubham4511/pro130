@@ -20,41 +20,38 @@ function draw(){
     image(video,0,0,600,530);
     fill("red");
     stroke("red");
-    song_peter_pen=peter_pen_song.isplaying();
+    song_peter_pen=peter_pen_song.isplaying;
     console.log("Peter Pen Song="+song_peter_pen);
 
-    song_Harry_potter_Theme=Harry_Potter_Theme_song.isplaying();
+    song_Harry_potter_Theme=Harry_Potter_Theme_song.isplaying;
     console.log("Harry Potter Theme Song="+song_Harry_potter_Theme);
 
 
-    if(scoreleftWrits>0.2){
+    if(scorerightWrits>0.2){
     circle(rightWritsX,rightWritsY,20);
     Harry_Potter_Theme_song.stop();
     if(song_peter_pen==false){
       peter_pen_song.play();
-    }
-    else{
       document.getElementById("song_id"),innerHTML="Song Name:Peter Pen Song";
-
     }
+     
+
   }
 }
 if(scoreLeftWrits>0.2){
-  circle(rightWritsX,rightWritsY,20);
+  circle(leftWritsX,leftWritsY,20);
   Harry_Potter_Theme_song.stop();
   if(song_Harry_potter_Theme==false){
     Harry_Potter_Theme_song.play();
-  }
-  else{
     document.getElementById("song_id"),innerHTML="Song Name:Harry Potter Theme song";
-
   }
+  
 }
 function modelLoaded(){
   console.log("PoseNet Is initialized");
 
 }
-function gotPoses(){
+function gotPoses(results){
   if(results.length >0){
     console.log(results);
 
